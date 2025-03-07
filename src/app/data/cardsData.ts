@@ -1,0 +1,148 @@
+import { transHistoryData } from "./transHistoryData";
+
+export const cardsData = [
+    {
+        id: "1",
+        name: "Ahmed sabry",
+        cardNumber: "1234-1234-1234-1234",
+        phoneNumber: "01112223334",
+        createDate: "23/10/2024",
+        totalDeposits: "86800",
+        email: "Example@gmail.com",
+        cardBalance: "25",
+        last30Days: "22500",
+        cardTransactions: transHistoryData
+    },
+    {
+        id: "2",
+        name: "Ahmed sabry",
+        cardNumber: "1234-1234-1234-1234",
+        phoneNumber: "01112223334",
+        createDate: "23/10/2024",
+        totalDeposits: "86800",
+        email: "Example@gmail.com",
+        cardBalance: "25",
+        last30Days: "22500",
+        cardTransactions: transHistoryData
+    },
+    {
+        id: "3",
+        name: "Ahmed sabry",
+        cardNumber: "1234-1234-1234-1234",
+        phoneNumber: "01112223334",
+        createDate: "23/10/2024",
+        totalDeposits: "86800",
+        email: "Example@gmail.com",
+        cardBalance: "25",
+        last30Days: "22500",
+        cardTransactions: transHistoryData
+    },
+    {
+        id: "4",
+        name: "Ahmed sabry",
+        cardNumber: "1234-1234-1234-1234",
+        phoneNumber: "01112223334",
+        createDate: "23/10/2024",
+        totalDeposits: "86800",
+        email: "Example@gmail.com",
+        cardBalance: "25",
+        last30Days: "22500",
+        cardTransactions: transHistoryData
+    },
+    {
+        id: "5",
+        name: "Ahmed sabry",
+        cardNumber: "1234-1234-1234-1234",
+        phoneNumber: "01112223334",
+        createDate: "23/10/2024",
+        totalDeposits: "86800",
+        email: "Example@gmail.com",
+        cardBalance: "25",
+        last30Days: "22500",
+        cardTransactions: transHistoryData
+    },
+    {
+        id: "6",
+        name: "Ahmed sabry",
+        cardNumber: "1234-1234-1234-1234",
+        phoneNumber: "01112223334",
+        createDate: "23/10/2024",
+        totalDeposits: "86800",
+        email: "Example@gmail.com",
+        cardBalance: "25",
+        last30Days: "22500",
+        cardTransactions: transHistoryData
+    },
+    {
+        id: "7",
+        name: "Ahmed sabry",
+        cardNumber: "1234-1234-1234-1234",
+        phoneNumber: "01112223334",
+        createDate: "23/10/2024",
+        totalDeposits: "86800",
+        email: "Example@gmail.com",
+        cardBalance: "25",
+        last30Days: "22500",
+        cardTransactions: transHistoryData
+    },
+    {
+        id: "8",
+        name: "Ahmed sabry",
+        cardNumber: "1234-1234-1234-1234",
+        phoneNumber: "01112223334",
+        createDate: "23/10/2024",
+        totalDeposits: "86800",
+        email: "Example@gmail.com",
+        cardBalance: "25",
+        last30Days: "22500",
+        cardTransactions: transHistoryData
+    },
+    {
+        id: "9",
+        name: "Ahmed sabry",
+        cardNumber: "1234-1234-1234-1234",
+        phoneNumber: "01112223334",
+        createDate: "23/10/2024",
+        totalDeposits: "86800",
+        email: "Example@gmail.com",
+        cardBalance: "25",
+        last30Days: "22500",
+        cardTransactions: transHistoryData
+    },
+    {
+        id: "10",
+        name: "Ahmed sabry",
+        cardNumber: "1234-1234-1234-1234",
+        phoneNumber: "01112223334",
+        createDate: "23/10/2024",
+        totalDeposits: "86800",
+        email: "Example@gmail.com",
+        cardBalance: "25",
+        last30Days: "22500",
+        cardTransactions: transHistoryData
+    },
+    {
+        id: "11",
+        name: "Ahmed sabry",
+        cardNumber: "1234-1234-1234-1234",
+        phoneNumber: "01112223334",
+        createDate: "23/10/2024",
+        totalDeposits: "86800",
+        email: "Example@gmail.com",
+        cardBalance: "25",
+        last30Days: "22500",
+        cardTransactions: transHistoryData
+    },
+    {
+        id: "12",
+        name: "Ahmed sabry",
+        cardNumber: "1234-1234-1234-1234",
+        phoneNumber: "01112223334",
+        createDate: "23/10/2024",
+        totalDeposits: "86800",
+        email: "Example@gmail.com",
+        cardBalance: "25",
+        last30Days: "22500",
+        cardTransactions: transHistoryData
+    },
+]

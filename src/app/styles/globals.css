@@ -1,0 +1,71 @@
+/** @format */
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Outfit:wght@100..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* globals.css */
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+	display: none;
+}
+
+.spin {
+	animation: spin 8s linear infinite;
+	transform-origin: center;
+	transform-box: fill-box !important;
+}
+
+.spin-reverse {
+	animation: spin-reverse 8s linear infinite;
+	transform-origin: center;
+	transform-box: fill-box !important;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes spin-reverse {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(-360deg);
+	}
+}
+
+.iconCalender::-webkit-calendar-picker-indicator {
+	display: none;
+}
+
+.inputNum::-webkit-inner-spin-button,
+.inputNum::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.circle {
+	animation: moveWheel 10s ease-in-out infinite;
+	transform-origin: center;
+	transform-box: fill-box !important;
+}
+
+@keyframes moveWheel {
+	0% {
+		transform: translateX(-300px) rotate(0deg);
+	}
+	40% {
+		transform: translateX(0px) rotate(360deg);
+	}
+	60% {
+		transform: translateX(0px) rotate(360deg);
+	}
+	100% {
+		transform: translateX(-300px) rotate(0deg);
+	}
+}
