@@ -74,7 +74,7 @@ export default function OneItemCard({amount, companyName, details, failureReason
             {t(status == "failed" || status == "rejected" ? "failure" : status == "pending" ? "pending" : "")}
           </div>
         </div>
-        <p className={`md:col-span-1 col-span-2 font-medium ${status == "pending" && type == "recharge" ? "text-[#D79A00]" : status == "failed" || status == "rejected" ? "line-through" : status == "success" || status == "approved" ? "text-[#000]" : ""}`}>
+        <p className={`md:col-span-1 col-span-2 font-medium ${status == "pending" && type == "recharge" ? "text-[#D79A00]" : status == "failed" || status == "rejected" ? "line-through" : ""}`}>
           {status !== "failed" && status !== "rejected" && type == "recharge" || type == "card"  ? "+" :""}
           {amountUsd ? amountUsd
             : allDetails.relatedTransactions[0] && amount ?
