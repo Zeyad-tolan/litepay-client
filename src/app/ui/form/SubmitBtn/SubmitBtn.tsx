@@ -9,7 +9,7 @@ export default function SubmitBtn({ title, disabled }: SubmitBtnProps) {
 
   return (
     <button
-      disabled={disabled ? disabled : false}
+      disabled={disabled ? true : false}
       type="submit"
       className={`w-full bg-primary py-2 px-3 rounded-full font-medium ${disabled && "bg-primary/70 text-white cursor-not-allowed"}`}
     >
