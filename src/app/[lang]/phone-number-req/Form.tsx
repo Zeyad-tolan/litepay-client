@@ -118,7 +118,7 @@ export function FormPartOne({ setPart, setToken }: FormPartOneProps) {
 export function FormPartTwo({ setPart, token }: FormPartOneProps) {
   const router = useRouter();
   const { lang } = useParams();
-  const [disable, setDisable] = useState<boolean>(true);
+  const [disable, setDisable] = useState<boolean>(false);
   const [otp, setOtp] = useState<string>("");
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
