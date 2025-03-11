@@ -1,9 +1,9 @@
 import BackGroundPage from "../../ui/pages/cartReq/BackGroundPage";
-import Form from "../../ui/pages/cartReq/Form";
+import Form from "./Form";
 
 export default function page() {
   return (
-    <div className="md:mt-[148px] min-h-screen w-screen relative flex justify-center items-center py-4">
+    <div className="min-h-screen w-screen relative flex justify-center items-center py-4">
       <BackGroundPage />
       <Form />
     </div>

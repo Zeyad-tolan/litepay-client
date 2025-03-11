@@ -2,11 +2,13 @@ import srcImage from "@/src/shared/Flag_of_Egypt.png";
 import { handleInput } from "@/src/util/handelInputNumbers";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { Dispatch, SetStateAction } from "react";
 
 export type PhoneNumberProps = {
-  name: string,
+  name: string;
   des?: string;
-  value?: string
+  value?: string;
+  setValue?: Dispatch<SetStateAction<string>>;
 };
 
 export default function PhoneNumber({ name, des, value }: PhoneNumberProps) {
@@ -16,11 +18,7 @@ export default function PhoneNumber({ name, des, value }: PhoneNumberProps) {
     <div className="flex flex-col gap-2 w-full">
       <label htmlFor={name} className="flex md:flex-row flex-col gap-1">
         {t("phone-number")}
-        {des && (
-          <span className="text-[#A2A3A2]">
-            {t(des)}
-          </span>
-        )}
+        {des && <span className="text-[#A2A3A2]">{t(des)}</span>}
       </label>
       <div className="border border-solid border-[#868685] focus:border-primary py-2 px-3 rounded-full flex gap-2">
         <p>+2</p>

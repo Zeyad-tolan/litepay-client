@@ -1,15 +1,25 @@
 import { useTranslations } from "next-intl";
+import { Dispatch, SetStateAction } from "react";
 
 export type TextInputProps = {
-  required: boolean,
-  title: string,
-  des?: string,
-  name: string,
-  maxLength?: number,
-  value?: string
+  required: boolean;
+  title: string;
+  des?: string;
+  name: string;
+  maxLength?: number;
+  value?: string;
+  setValue?: Dispatch<SetStateAction<string>>;
 };
-export default function TextInput({ name, required, title, des, maxLength, value }: TextInputProps) {
-  const t = useTranslations("Cards")
+export default function TextInput({
+  name,
+  required,
+  title,
+  des,
+  maxLength,
+  value,
+  setValue,
+}: TextInputProps) {
+  const t = useTranslations("Cards");
   const validateInput = (e: React.FormEvent<HTMLInputElement>) => {
     const regex = /^[a-zA-Z\s]*$/;
     if (!regex.test(e.currentTarget.value)) {
@@ -17,16 +27,10 @@ export default function TextInput({ name, required, title, des, maxLength, value
     }
   };
   return (
-    <div
-      className="flex flex-col gap-2 w-full"
-    >
+    <div className="flex flex-col gap-2 w-full">
       <label htmlFor={name} className="flex md:flex-row flex-col gap-1">
         {t(title)}
-        {des &&
-          <span className="text-[#A2A3A2]">
-            {t(des)}
-          </span>
-        }
+        {des && <span className="text-[#A2A3A2]">{t(des)}</span>}
       </label>
       <input
         type="text"

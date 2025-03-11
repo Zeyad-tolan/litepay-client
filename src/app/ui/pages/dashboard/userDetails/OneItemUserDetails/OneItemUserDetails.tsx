@@ -4,10 +4,12 @@ import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 
 export type OneItemUserDetailsProps = {
-  dataUser:getUsersItemType
+  dataUser: getUsersItemType;
 };
-export default function OneItemUserDetails({ dataUser }: OneItemUserDetailsProps) {
-  const t = useTranslations('dashboard')
+export default function OneItemUserDetails({
+  dataUser,
+}: OneItemUserDetailsProps) {
+  const t = useTranslations("dashboard");
   const search = useSearchParams();
   const date = new Date(dataUser.createdAt);
   const day = date.getUTCDate();
@@ -21,29 +23,41 @@ export default function OneItemUserDetails({ dataUser }: OneItemUserDetailsProps
     });
     return total;
   }, [dataUser.Cards]);
-  const detailsUserData = [{ title: "name", value: `${dataUser.Cards.length > 0 ? `${dataUser.Cards[0].name}` : "null"}` }, { title: "phone-number", value: dataUser.phoneNumber }, { title: "email", value: dataUser.email }, { title: "registerDate", value: formattedDate }, { title: "totalDeposits", value: `${totalDeposits}` + " USD" }, { title: "last", value: `${search.get("last")}` }];
+  const detailsUserData = [
+    {
+      title: "name",
+      value: `${
+        dataUser.Cards.length > 0 ? `${dataUser.Cards[0].name}` : "null"
+      }`,
+    },
+    { title: "phone-number", value: dataUser.phoneNumber || "null" },
+    { title: "email", value: dataUser.email },
+    { title: "registerDate", value: formattedDate },
+    { title: "totalDeposits", value: `${totalDeposits}` + " USD" },
+    { title: "last", value: `${search.get("last")}` },
+  ];
+
+  console.log(dataUser.phoneNumber);
+
   return (
     <>
-    {
-      detailsUserData.map(({ title, value }, index) => {
+      {detailsUserData.map(({ title, value }, index) => {
         return (
-          <div key={index} className={` flex flex-col gap-1 ${title == "email" ? "col-span-2" : "col-span-1"}`}>
+          <div
+            key={index}
+            className={` flex flex-col gap-1 ${
+              title == "email" ? "col-span-2" : "col-span-1"
+            }`}
+          >
             <p className="text-lg font-medium flex gap-1">
-              {
-                title === "telegram" && <span>{t("user")}</span>
-              }
+              {title === "telegram" && <span>{t("user")}</span>}
               {t(title)}
-              {
-                title === "last" && <span>{t("deposits")}</span>
-              }
+              {title === "last" && <span>{t("deposits")}</span>}
             </p>
-            <p>
-              {value}
-            </p>
+            <p>{value === "null" ? "null" : value}</p>
           </div>
-        )
-      })
-    }
+        );
+      })}
     </>
   );
 }
