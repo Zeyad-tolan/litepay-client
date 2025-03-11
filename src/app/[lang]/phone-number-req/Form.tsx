@@ -146,9 +146,7 @@ export function FormPartTwo({ setPart, token }: FormPartOneProps) {
       if (res.ok) {
         toast.success(data.message || "phone number changed successfully");
         setDisable(false);
-        setTimeout(() => {
-          router.push("/en/card-dashboard");
-        }, 3000);
+        router.push(`/${lang}/card-dashboard`);
       } else {
         toast.error(data?.message || "something went wrong");
         setDisable(false);
