@@ -31,7 +31,7 @@ export const getCardTrans = (
       }
     })
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       setData(data.data);
       setPaginationTrans(data.meta);
     })
