@@ -48,6 +48,7 @@ export async function middleware(request: NextRequest) {
       const { data } = await res.json();
 
       if (
+        data.Cards !== null &&
         data.Cards.length > 0 &&
         data.phoneNumber === null &&
         !request.nextUrl.pathname.includes("/phone-number-req")
