@@ -60,8 +60,6 @@ export async function middleware(request: NextRequest) {
       const response = NextResponse.redirect(new URL("/en/login", request.url));
       response.cookies.delete("token");
       response.cookies.delete("id");
-      response.cookies.delete("otp");
-      response.cookies.delete("otpToken");
       return response;
     }
   }
