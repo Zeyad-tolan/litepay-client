@@ -29,7 +29,7 @@ export default function OneItemCard({
   const allDetails = details ? JSON.parse(details) : null;
   // console.log(allDetails);
 
-  const date = new Date(allDetails ? allDetails.details.createdAt : createdAt);
+  const date = new Date(createdAt as string);
 
   const day = date.getUTCDate();
   const month = date.getUTCMonth() + 1;
