@@ -24,38 +24,49 @@ export async function middleware(request: NextRequest) {
     "/phone-number-req",
   ];
   const localPath = ["/login", "/signup", "/forgot-password"];
-  const isAuthRoute = localPath.some((route) => path.includes(route));
+  const isAuthRoute = localPath.some((route) => path.endsWith(route));
   const isProtectPath = protectPath.some((route) => path.includes(route));
+
+  // console.log(path);
+
   if (!token && isProtectPath) {
     return NextResponse.redirect(new URL("/en/login", request.url));
   }
 
   if (token && isProtectPath) {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}users/one/${userId}`,
-      {
-        method: "GET",
-        headers: {
-          token: token,
-        },
-      }
-    );
-
-    const { data } = await res.json();
-    console.log(data);
-
-    if (
-      data.Cards.length > 0 &&
-      data.phoneNumber === null &&
-      !request.nextUrl.pathname.includes("/phone-number-req")
-    ) {
-      return NextResponse.redirect(
-        new URL("/en/phone-number-req", request.url)
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}users/one/${userId}`,
+        {
+          method: "GET",
+          headers: {
+            token: token,
+          },
+        }
       );
+
+      const { data } = await res.json();
+
+      if (
+        data.Cards.length > 0 &&
+        data.phoneNumber === null &&
+        !request.nextUrl.pathname.includes("/phone-number-req")
+      ) {
+        return NextResponse.redirect(
+          new URL("/en/phone-number-req", request.url)
+        );
+      }
+    } catch (error) {
+      const response = NextResponse.redirect(new URL("/en/login", request.url));
+      response.cookies.delete("token");
+      response.cookies.delete("id");
+      response.cookies.delete("otp");
+      response.cookies.delete("otpToken");
+      return response;
     }
   }
 
-  if (isAuthRoute && token) {
+  if (isAuthRoute && token && userId) {
     return NextResponse.redirect(new URL("/en", request.url));
   }
   return intlMiddleware(request);
