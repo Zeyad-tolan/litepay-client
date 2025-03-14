@@ -120,10 +120,10 @@ export default function OneItemCard({
             : ""}
           {amountUsd
             ? amountUsd
-            : allDetails.relatedTransactions[0] && amount
+            : allDetails?.relatedTransactions[0] && amount
             ? (
                 +amount.toString() +
-                +allDetails.relatedTransactions[0].amount.toString()
+                +allDetails?.relatedTransactions[0]?.amount.toString()
               ).toFixed(2)
             : amount}
         </p>

@@ -37,7 +37,7 @@ export default function OneItemUserDetails({
     { title: "last", value: `${search.get("last")}` },
   ];
 
-  console.log(dataUser.phoneNumber);
+  // console.log(dataUser.phoneNumber);
 
   return (
     <>
