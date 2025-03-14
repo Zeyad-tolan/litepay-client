@@ -120,6 +120,7 @@ export function FormPartTwo({ setPart, token }: FormPartOneProps) {
   const { lang } = useParams();
   const [disable, setDisable] = useState<boolean>(false);
   const [otp, setOtp] = useState<string>("");
+  // console.log(otp, token);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -135,7 +136,7 @@ export function FormPartTwo({ setPart, token }: FormPartOneProps) {
             token: Cookies.get("token") as string,
           },
           body: JSON.stringify({
-            otp: otp,
+            otp: `${otp}`,
             changeMyPhoneNumberToken: token,
           }),
         }
