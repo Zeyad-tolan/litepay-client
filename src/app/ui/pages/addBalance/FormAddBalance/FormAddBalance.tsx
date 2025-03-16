@@ -59,7 +59,7 @@ export default function FormAddBalance() {
   }, []);
 
   useEffect(() => {
-    if (user === null || user === undefined) {
+    if (user === null || user === undefined || commission === 0) {
       getOneUser("", setUser);
     }
 
