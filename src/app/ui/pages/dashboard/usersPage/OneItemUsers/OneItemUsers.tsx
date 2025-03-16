@@ -26,36 +26,56 @@ export default function OneItemUsers({ item }: { item: getUsersItemType }) {
   const year = date.getUTCFullYear();
   const formattedDate = `${day}/${month}/${year}`;
   const totalDeposits = useMemo(() => {
-      let total = 0;
-      item.Cards?.forEach((card) => {
-        total += card.balance;
-      });
-      return total;
-    }, [item.Cards]);
+    let total = 0;
+    item.Cards?.forEach((card) => {
+      total += card.balance;
+    });
+    return total;
+  }, [item.Cards]);
   return (
     <tr className="border-t">
       <td>
-        {
-          item.Role.type === "vip" &&
+        {item.Role.type === "vip" && (
           <>
             <Image
               src={srcIcon}
               alt=""
-              className={`${item.Role.type == "vip" ? "border border-solid border-primary bg-primary/30 rounded-full h-fit w-fit p-2 flex justify-center items-center" : ""} dark:hidden`}
+              className={`${
+                item.Role.type == "vip"
+                  ? "border border-solid border-primary bg-primary/30 rounded-full h-fit w-fit p-2 flex justify-center items-center"
+                  : ""
+              } dark:hidden`}
             />
-            <DiamondDarkIcon className={`${item.Role.type == "vip" ? "border border-solid border-primary bg-primary/30 rounded-full h-fit w-fit p-2 flex justify-center items-center" : ""} hidden dark:block`} />
+            <DiamondDarkIcon
+              className={`${
+                item.Role.type == "vip"
+                  ? "border border-solid border-primary bg-primary/30 rounded-full h-fit w-fit p-2 flex justify-center items-center"
+                  : ""
+              } hidden dark:block`}
+            />
           </>
-        }
+        )}
       </td>
-      <OneTdNewCardReq value={`${item.Cards.length > 0 ? item.Cards[0].name : item.username}`} />
+      <OneTdNewCardReq
+        value={`${item.Cards.length > 0 ? item.Cards[0].name : item.username}`}
+      />
       <OneTdNewCardReq value={`${item.phoneNumber}`} />
       <OneTdNewCardReq value={item.email} />
       <OneTdNewCardReq value={formattedDate} />
-      <OneTdNewCardReq value={`${item.Cards.length > 0 ? `****-${item.Cards[0].cardNumber.slice(-4)}` : "null"}`} />
-      <OneTdNewCardReq value={`${totalDeposits.toFixed(2)} EGP`} />
-      <OneTdNewCardReq value={`${item.last30DaysDeposit} EGP`} />
+      <OneTdNewCardReq
+        value={`${
+          item.Cards.length > 0
+            ? `****-${item.Cards[0].cardNumber.slice(-4)}`
+            : "null"
+        }`}
+      />
+      <OneTdNewCardReq value={`${totalDeposits.toFixed(2)} USD`} />
+      <OneTdNewCardReq value={`${item.last30DaysDeposit}  USD`} />
       <td className={`font-normal h-14 py-1 flex justify-center items-center`}>
-        <LinkLocal src={`dashboard/users/${item.id}?last=${item.last30DaysDeposit}`} style="bg-primary block w-fit h-fit text-black px-1 py-1 rounded-md">
+        <LinkLocal
+          src={`dashboard/users/${item.id}?last=${item.last30DaysDeposit}`}
+          style="bg-primary block w-fit h-fit text-black px-1 py-1 rounded-md"
+        >
           <ListDots className="text-white" />
         </LinkLocal>
       </td>

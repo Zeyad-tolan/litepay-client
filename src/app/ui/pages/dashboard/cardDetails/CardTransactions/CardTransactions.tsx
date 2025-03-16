@@ -21,7 +21,7 @@ export default function CardTransactions({
       new Date(b.bankCreatedAt || (b.createdAt as string)).getTime() -
       new Date(a.bankCreatedAt || (a.createdAt as string)).getTime()
   );
-  // console.log(data);
+  console.log(data);
 
   return (
     <>

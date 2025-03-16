@@ -102,7 +102,7 @@ export default function OneItemCard({
               ? "text-[#D79A00]"
               : status == "failed" || status == "rejected"
               ? "line-through"
-              : status == "success" && type == "recharge"
+              : status == "success" && (type == "recharge" || type == "card")
               ? "text-[#008000]"
               : status == "approved" &&
                 // type == "checkout" &&
