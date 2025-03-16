@@ -18,10 +18,10 @@ export default function CardTransactions({
   const t = useTranslations("dashboard");
   data = data.sort(
     (a, b) =>
-      new Date(b.createdAt as string).getTime() -
-      new Date(a.createdAt as string).getTime()
+      new Date(b.bankCreatedAt || (b.createdAt as string)).getTime() -
+      new Date(a.bankCreatedAt || (a.createdAt as string)).getTime()
   );
-  console.log(data);
+  // console.log(data);
 
   return (
     <>
@@ -43,7 +43,11 @@ export default function CardTransactions({
                     type={item.type}
                     method={item.method}
                     amountUsd={item.amountUsd}
-                    createdAt={item.createdAt}
+                    createdAt={
+                      item.method === "instapay"
+                        ? item.createdAt
+                        : item.bankCreatedAt
+                    }
                     status={item.status}
                   />
                   {index != data.length - 1 && <hr />}

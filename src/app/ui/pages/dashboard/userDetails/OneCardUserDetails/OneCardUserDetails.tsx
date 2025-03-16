@@ -19,7 +19,7 @@ export default function OneCardUserDetails({
   const t = useTranslations("dashboard");
   const { lang } = useParams();
 
-  console.log(lang);
+  // console.log(lang);
   return (
     <div className="flex justify-between gap-10 mt-3">
       {currentPage.includes("dashboard") ? (
