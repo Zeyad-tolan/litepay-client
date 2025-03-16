@@ -51,11 +51,15 @@ export default function FormAddBalance() {
     sessionStorage.setItem("pound-value", "0");
     getExchangeRate(setCurrencyDifference);
     getAllRating(setInstapayValue, setVodafoneCash, setNormalUser, setVipUser);
-    getOneUser("", setUser);
     const dollar = sessionStorage.getItem("dollar-value");
     dollar && setDollarValue(+dollar);
     const pound = sessionStorage.getItem("pound-value");
     pound && setPoundValue(+pound);
+  }, []);
+
+  useEffect(() => {
+    getOneUser("", setUser);
+
     setCommission(() =>
       user?.rating
         ? +user.rating / 100
@@ -66,7 +70,6 @@ export default function FormAddBalance() {
         : normalUser
     );
   }, [user]);
-
   useEffect(() => {
     const baseValue = dollarValue * currencyDifference;
     const fees = baseValue * commission;
