@@ -14,6 +14,9 @@ export default function HeaderSelect() {
     e.preventDefault();
     addFilter(e.target.name, e.target.value === "all" ? "" : e.target.value);
   };
+  useEffect(() => {
+    addFilter("status", "pending");
+  }, []);
   return (
     <>
       <div className="min-w-[100px]">
@@ -55,7 +58,7 @@ export default function HeaderSelect() {
         <div className="px-3 py-2 rounded-lg border border-[#B3B7BE] flex justify-between items-center gap-2">
           <select
             name="status"
-            defaultValue={"all"}
+            defaultValue={"pending"}
             onChange={handleSelect}
             id="Status"
             className="w-full bg-white text-black dark:bg-primaryDark dark:text-white outline-none placeholder:text-black"
