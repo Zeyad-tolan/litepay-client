@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-"use client"
+"use client";
 import { getMyCardType } from "@/src/types/getMyCardType";
 import DetailsCardDashboard from "../DetailsCardDashboard";
 import ImageDetailsCard from "../ImageDetailsCard";
@@ -8,13 +8,13 @@ import { useEffect, useMemo, useState } from "react";
 import { getAllRating } from "@/src/util/getAllRating";
 
 interface IProp {
-  data: getMyCardType
+  data: getMyCardType;
 }
 
 export default function HeroCardDashboard({ data }: IProp) {
-  const [vodafoneCash, setVodafoneCash] = useState<number>(0)
-  const [normalUser, setNormalUser] = useState<number>(0)
-  const [vipUser, setVipUser] = useState<number>(0)
+  const [vodafoneCash, setVodafoneCash] = useState<number>(0);
+  const [normalUser, setNormalUser] = useState<number>(0);
+  const [vipUser, setVipUser] = useState<number>(0);
   // const totalDepositsRequests = useMemo(() => {
   //   let total = 0;
   //   dataReqs.forEach((req) => {
@@ -36,12 +36,28 @@ export default function HeroCardDashboard({ data }: IProp) {
   // console.log("Reqs => "+totalDepositsRequests)
   // console.log("Trans => ",totalDepositsTrans)
   useEffect(() => {
-    getAllRating(setVodafoneCash, setVodafoneCash, setNormalUser, setVipUser)
-  },[])
+    getAllRating(setVodafoneCash, setVodafoneCash, setNormalUser, setVipUser);
+  }, []);
   return (
     <div className="grid md:grid-cols-2 grid-cols-1 md:gap-8 gap-4">
-      <ImageDetailsCard cardId={data.id} cvvNum={data.cvv} dateExp={`${data.expiryDate}`} id={data.cardNumber} name={data.name} />
-      <DetailsCardDashboard normalUser={normalUser} vipUser={vipUser} lineBarValue="30%" balance={data.balance} status={data.status} support="available" type="premium" provided={12000} toBeSpecial={500} />
+      <ImageDetailsCard
+        cardId={data.id}
+        cvvNum={data.cvv}
+        dateExp={`${data.expiryDate}`}
+        id={data.cardNumber}
+        name={data.name}
+      />
+      <DetailsCardDashboard
+        normalUser={normalUser}
+        vipUser={vipUser}
+        lineBarValue="30%"
+        balance={data.balance}
+        status={data.status}
+        support="available"
+        type="premium"
+        provided={12000}
+        toBeSpecial={500}
+      />
     </div>
   );
 }

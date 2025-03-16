@@ -22,7 +22,7 @@ export const getOneUser = (
       }
     })
     .then((data) => {
-      //   console.log(data);
+      console.log(data);
       setData(data.data);
     })
     .catch((err) => {

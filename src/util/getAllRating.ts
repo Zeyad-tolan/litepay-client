@@ -23,14 +23,14 @@ export const getAllRating = async (
     );
 
     const result = await response.text();
-    // console.log(result);
+    console.log(result);
     const data: itemRating[] = JSON.parse(result).data;
     data.map((item) => {
       if (item.title === "instapay") {
         setInsta(item.value / 100);
       } else if (item.title === "vodafone") {
         setVodafoneCash(item.value / 100);
-      } else if (item.title === "norm") {
+      } else if (item.title === "normal") {
         setNormalUser(item.value / 100);
       } else if (item.title === "vip") {
         setVipUser(item.value / 100);

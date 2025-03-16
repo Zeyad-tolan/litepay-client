@@ -6,11 +6,11 @@ import { useEffect } from "react";
 export default function TitleAddBalanceWait() {
   const t = useTranslations("order-wait");
   const { lang } = useParams();
-  useEffect(() => {
-    setTimeout(() => {
-      window.location.assign(`/${lang}/card-dashboard`);
-    }, 1000 * 3);
-  }, [lang]);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     window.location.assign(`/${lang}/card-dashboard`);
+  //   }, 1000 * 3);
+  // }, [lang]);
   return (
     <div>
       <p className="text-3xl font-semibold text-center">
