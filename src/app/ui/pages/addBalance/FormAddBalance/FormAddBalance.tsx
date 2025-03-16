@@ -72,7 +72,7 @@ export default function FormAddBalance() {
           : vipUser
         : normalUser
     );
-    console.log(user);
+    // console.log(user);
   }, [user, getOneUser]);
   useEffect(() => {
     const baseValue = dollarValue * currencyDifference;
