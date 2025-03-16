@@ -44,15 +44,7 @@ export default function FormAddBalance() {
 
   const instaFee = instapayValue;
   const vodafoneCashFee = vodafoneCash;
-  const [commission, setCommission] = useState<number>(() =>
-    user?.rating
-      ? +user.rating / 100
-      : user?.Role
-      ? user.Role.type === "user"
-        ? normalUser
-        : vipUser
-      : normalUser
-  );
+  const [commission, setCommission] = useState<number>(0);
 
   useEffect(() => {
     sessionStorage.setItem("dollar-value", "0");
