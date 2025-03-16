@@ -7,7 +7,7 @@ export const useFilters = () => {
 
   const addFilter = (name: string, value: string) => {
     const currentParams = new URLSearchParams(search.toString());
-    if (search.get("searchWord")) {
+    if (value.trim().length > 0) {
       currentParams.set("pageNo", "1");
     } else {
       currentParams.delete("searchWord");

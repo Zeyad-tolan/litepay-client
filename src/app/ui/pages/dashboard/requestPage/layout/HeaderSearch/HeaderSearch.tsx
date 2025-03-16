@@ -7,26 +7,9 @@ import { useEffect, useState } from "react";
 export default function HeaderSearch() {
   const t = useTranslations("dashboard");
   const addFilter = useFilters();
-  const [query, setQuery] = useState("");
-  const [debouncedQuery, setDebouncedQuery] = useState("");
-
-  useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebouncedQuery(query);
-    }, 500); // 500ms delay
-
-    return () => {
-      clearTimeout(handler);
-    };
-  }, [query]);
-
-  // Update filter when debouncedQuery changes
-  useEffect(() => {
-    addFilter("searchWord", debouncedQuery || "");
-  }, [debouncedQuery, addFilter]);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value);
+    addFilter("searchWord", e.target.value || "");
   };
   return (
     <div>
