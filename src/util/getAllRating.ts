@@ -23,7 +23,7 @@ export const getAllRating = async (
     );
 
     const result = await response.text();
-    console.log(result);
+    // console.log(result);
     const data: itemRating[] = JSON.parse(result).data;
     data.map((item) => {
       if (item.title === "instapay") {
