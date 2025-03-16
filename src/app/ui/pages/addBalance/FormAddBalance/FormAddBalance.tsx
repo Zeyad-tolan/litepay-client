@@ -17,6 +17,7 @@ import PromoCode from "../../ChargeCart/PromoCode";
 import TypeCharge from "../../ChargeCart/TypeCharge";
 import CardNumber from "../CardNumber";
 import DetailsAddBalance from "../DetailsAddBalance";
+import { getOneUser } from "@/src/util/getOneUser";
 
 export default function FormAddBalance() {
   const [typeCharge, setTypeCharge] = useState<"instapay" | "vodafone">(
@@ -37,29 +38,45 @@ export default function FormAddBalance() {
   const [save, setSave] = useState<number>(0);
   const { lang } = useParams();
   const router = useRouter();
-  const { user }: any = jwtDecode(Cookies.get("token") as string);
+  const [user, setUser] = useState<any>(null);
   // console.log(user);
+  const { userData }: any = jwtDecode(Cookies.get("token") as string);
 
   const instaFee = instapayValue;
   const vodafoneCashFee = vodafoneCash;
-  const commission = user.rating
-    ? +user.rating / 100
-    : user.Role
-    ? user.Role.type === "user"
-      ? normalUser
-      : vipUser
-    : normalUser;
+  const [commission, setCommission] = useState<number>(() =>
+    user?.rating
+      ? +user.rating / 100
+      : user?.Role
+      ? user.Role.type === "user"
+        ? normalUser
+        : vipUser
+      : normalUser
+  );
 
   useEffect(() => {
     sessionStorage.setItem("dollar-value", "0");
     sessionStorage.setItem("pound-value", "0");
     getExchangeRate(setCurrencyDifference);
     getAllRating(setInstapayValue, setVodafoneCash, setNormalUser, setVipUser);
+    getOneUser("", setUser);
     const dollar = sessionStorage.getItem("dollar-value");
     dollar && setDollarValue(+dollar);
     const pound = sessionStorage.getItem("pound-value");
     pound && setPoundValue(+pound);
   }, []);
+
+  useEffect(() => {
+    setCommission(() =>
+      user?.rating
+        ? +user.rating / 100
+        : user?.Role
+        ? user.Role.type === "user"
+          ? normalUser
+          : vipUser
+        : normalUser
+    );
+  }, [user]);
 
   useEffect(() => {
     const baseValue = dollarValue * currencyDifference;
@@ -135,7 +152,7 @@ export default function FormAddBalance() {
           setFocusInputName={setFocusInputName}
         />
         <DetailsAddBalance
-          role={user.Role.type}
+          role={user?.Role?.type}
           save={save}
           commission={commission}
           instapay={instapayValue}
