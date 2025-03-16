@@ -56,9 +56,6 @@ export default function FormAddBalance() {
     dollar && setDollarValue(+dollar);
     const pound = sessionStorage.getItem("pound-value");
     pound && setPoundValue(+pound);
-  }, []);
-
-  useEffect(() => {
     setCommission(() =>
       user?.rating
         ? +user.rating / 100
