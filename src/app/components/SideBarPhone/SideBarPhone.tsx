@@ -8,6 +8,7 @@ import LogOutButton from "../../ui/header/LogOutButton";
 export default function SideBarPhone({ open }: { open: boolean }) {
   const t = useTranslations("Navbar");
   const login = Cookies.get("token");
+  const userId = Cookies.get("id");
   return (
     <div
       className={`bg-secondary py-8 px-4 w-40 h-fit absolute rtl:left-0 ltr:right-0 ${
@@ -21,7 +22,7 @@ export default function SideBarPhone({ open }: { open: boolean }) {
             return (
               <LinkLocal
                 key={index}
-                src={link}
+                src={title === "profile" ? `${link}/${userId}` : link}
                 style="flex items-center gap-2 text-white"
               >
                 <Icon />
