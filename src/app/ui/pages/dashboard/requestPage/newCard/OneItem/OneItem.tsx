@@ -66,7 +66,7 @@ export default function OneItem({
       </td>
       <OneTdNewCardReq value={nameOnCard} />
       <OneTdNewCardReq value={phoneNumber} />
-      <OneTdNewCardReq value={`${amount} EGP`} />
+      <OneTdNewCardReq value={`${amount.toFixed(2)} EGP`} />
       <OneTdNewCardReq value={`${amountUsd}` + " $"} />
       <td className={`font-normal py-1 text-center`}>
         <span
