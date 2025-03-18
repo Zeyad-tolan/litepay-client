@@ -123,15 +123,15 @@ export default function DetailsCardDashboard({
         </p>
       ) : (
         <>
-          <LineBar value={`${(+balance / 1000) * 100}%`} />
+          {/* <LineBar value={`${(+balance / 1000) * 100}%`} />
           <p>
             {t("you-need")}{" "}
             <span className="text-primary font-medium">{userNeed}</span>{" "}
             {t("to-be-premium")}
-            {/* 
+            
                   const balance = 1000 - totalDepositsRequests
-                 */}
-          </p>
+                
+          </p> */}
         </>
       )}
     </div>
