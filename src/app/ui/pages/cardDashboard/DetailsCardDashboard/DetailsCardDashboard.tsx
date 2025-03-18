@@ -20,7 +20,7 @@ export type DetailsCardDashboardProps = {
   status: string;
   totalDepositsRequests?: number;
   totalDepositsTrans?: number;
-  lineBarValue: string;
+  lineBarValue: number;
   toBeSpecial?: number;
   provided?: number;
   vipUser: number;
@@ -33,11 +33,13 @@ export default function DetailsCardDashboard({
   support,
   status,
   balance,
+  lineBarValue,
 }: DetailsCardDashboardProps) {
   const t = useTranslations("Cards");
   const { lang } = useParams();
   const totalDepositsPeriume = 1000;
-  const userNeed = 1000 - +balance < 0 ? 0 : (1000 - +balance).toFixed(2);
+  const userNeed =
+    1000 - lineBarValue < 0 ? 0 : (1000 - lineBarValue).toFixed(2);
   const [user, setUser] = useState<any>(null);
   useEffect(() => {
     // get user from jwtDecode

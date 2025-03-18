@@ -50,7 +50,7 @@ export default function HeroCardDashboard({ data }: IProp) {
       <DetailsCardDashboard
         normalUser={normalUser}
         vipUser={vipUser}
-        lineBarValue="30%"
+        lineBarValue={data.totalLast30DaysDeposit || 0}
         balance={data.balance}
         status={data.status}
         support="available"

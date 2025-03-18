@@ -42,8 +42,10 @@
   },
   "order-wait": {
     "title": "Thank you for ordering a ",
-    "title-add-balance-wait": "Thank you for recharging your ",
-    "secondTitle": " card.",
+    "title-add-balance-wait": "Thank you for your payment of ",
+    "secondTitle": " on your",
+    "thirdTitle": " card ",
+    "fourthTitle": "with a deposit of ",
     "description": "Your order is being processed and you will receive a message on whatsapp when your card is ready to use. The order takes from 10 minutes to 2 hours during the working hours.",
     "description-add-balance-wait": "Your order is being processed and you will receive a message on whatsapp when your balance is added. The order takes from 10 minutes to 2 hours during the working hours."
   },
