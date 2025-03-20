@@ -38,6 +38,7 @@ export const getDataTransactionCardDashBoard = async (
     );
 
     const result = await response.text();
+    // console.log("result", JSON.parse(result));
     setData(JSON.parse(result).data);
     setPaginationReqs(JSON.parse(result).meta);
   } catch (error) {
