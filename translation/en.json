@@ -187,6 +187,7 @@
     "egp-amount-required": "EGP amount is required",
     "decimals": "Decimals cannot be added",
     "vodafone-comming": "Vodafone Cash (coming soon)...",
+    "vodafone-unavailable": "Vodafone Cash is currently unavailable",
     "invalid-promo": "invalid promo code",
     "telegram-url": "Telegram profile must be a valid URL",
     "national-id-required": "National ID is required",

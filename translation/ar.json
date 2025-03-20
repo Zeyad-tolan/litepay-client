@@ -187,6 +187,7 @@
     "egp-amount-required": "المبلغ المطلوب بالجنيه المصري",
     "decimals": "لا يمكن اضافة الكسور على المبلغ",
     "vodafone-comming": "فودافون كاش (قريبا)...",
+    "vodafone-unavailable": "فودافون كاش غير متاح حاليا",
     "invalid-promo": "كود الخصم غير صالح",
     "telegram-url": "الحساب التليجرام يجب أن يكون صالح URL",
     "national-id-required": "الرقم القومي مطلوب",
