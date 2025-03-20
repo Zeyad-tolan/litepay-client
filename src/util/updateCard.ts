@@ -16,7 +16,7 @@ export const updateCard = (
     },
     body: JSON.stringify({
       ...data,
-      userId: Cookies.get("id"),
+      // userId: Cookies.get("id"),
     }),
   })
     .then((res) => {
