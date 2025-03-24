@@ -48,6 +48,7 @@ export default function MainCardDetails() {
               phoneNumber={`${dataCard.User.phoneNumber}`}
               totalDeposits={`${dataCard.totalDeposit}`}
               user={dataCard.name}
+              userId={dataCard.userId.toString()}
             />
             {dataTrans && dataReqs && (
               <CardTransactions

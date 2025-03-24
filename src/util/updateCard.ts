@@ -20,6 +20,8 @@ export const updateCard = (
     }),
   })
     .then((res) => {
+      console.log(data);
+
       if (res.ok) {
         return res.json();
       } else {

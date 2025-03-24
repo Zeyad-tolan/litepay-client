@@ -14,6 +14,7 @@ type HeaderCardDetailsProps = {
   status: string;
   cvv: string;
   expiryDate: string;
+  userId: string;
 };
 
 export default function HeaderCardDetails({
@@ -28,6 +29,7 @@ export default function HeaderCardDetails({
   cardBalance,
   totalDeposits,
   last30Days,
+  userId,
 }: HeaderCardDetailsProps) {
   const t = useTranslations("dashboard");
   const date = new Date(cardCreated);
@@ -63,7 +65,7 @@ export default function HeaderCardDetails({
           })}
         </div>
       </div>
-      <Actions data={dataAction} status={status} />
+      <Actions data={dataAction} status={status} userId={userId} />
     </div>
   );
 }

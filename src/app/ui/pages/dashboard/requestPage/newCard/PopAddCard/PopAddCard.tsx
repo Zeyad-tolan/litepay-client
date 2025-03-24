@@ -5,6 +5,7 @@ import { allCardsBank } from "@/src/types/allCardsBank";
 import { addCard } from "@/src/util/addCard";
 import { getAllCardsBank } from "@/src/util/getAllCardsBank";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 interface Props {
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
@@ -12,6 +13,7 @@ interface Props {
   id: string;
   balance: string;
   userId: number;
+  type?: string;
 }
 
 export default function PopAddCard({
@@ -20,10 +22,17 @@ export default function PopAddCard({
   id,
   balance,
   userId,
+  type,
 }: Props) {
   const [cards, setCards] = useState<allCardsBank[] | null>(null);
   const handelSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (type === "under-development") {
+      toast.error("This feature is under development.");
+      return;
+    }
+
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData);
     const cardNumber = `${data.cardNumber}`;
