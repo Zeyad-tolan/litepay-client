@@ -203,6 +203,8 @@ export function FormPartTwo({ setPart, token }: FormPartOneProps) {
   );
 }
 
+const theme = localStorage.getItem("theme");
+
 const phoneInputStyles = {
   container: {
     width: "100%",
@@ -214,6 +216,7 @@ const phoneInputStyles = {
     padding: "8px 12px",
     fontSize: "1rem",
     border: "1px solid #d1d5db",
+    color: theme === "dark" ? "white" : "black",
     backgroundColor: "transparent",
   },
 };
@@ -281,6 +284,7 @@ export function PhoneNumber({ name, value, setValue }: PhoneNumberProps) {
           align-items: center !important;
           justify-content: center !important;
           height: 40px !important;
+          background-color: transparent !important;
         }
 
         /* Dropdown as modal in center of screen */
@@ -309,7 +313,7 @@ export function PhoneNumber({ name, value, setValue }: PhoneNumberProps) {
           left: 0;
           right: 0;
           bottom: 0;
-          background: rgba(0, 0, 0, 0.5);
+          background: rgba(255, 255, 255, 1);
           z-index: -1;
         }
 
@@ -320,6 +324,7 @@ export function PhoneNumber({ name, value, setValue }: PhoneNumberProps) {
           align-items: center !important;
           gap: 10px !important;
           cursor: pointer !important;
+          background: white !important;
           transition: background-color 0.2s ease !important;
         }
 
@@ -348,7 +353,7 @@ export function PhoneNumber({ name, value, setValue }: PhoneNumberProps) {
 
         /* Dark mode styles */
         .dark .react-international-phone-country-selector-dropdown {
-          background-color: #1e293b !important;
+          background-color: white !important;
           border-color: #475569 !important;
         }
 

@@ -12,12 +12,15 @@ import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
 
 // Add custom styles for phone input
+const theme = localStorage.getItem("theme");
+
 const phoneInputStyles = {
   container: {
     width: "100%",
   },
   input: {
     width: "100%",
+    color: theme === "dark" ? "white" : "black",
     height: "40px",
     borderRadius: "4px",
     padding: "8px 12px",
@@ -106,6 +109,7 @@ export default function FormPartOne({ setPart }: FormPartOneProps) {
           border-bottom-left-radius: 4px !important;
           border-right: none !important;
           height: 40px;
+          background-color: transparent !important;
         }
       `}</style>
     </motion.form>
