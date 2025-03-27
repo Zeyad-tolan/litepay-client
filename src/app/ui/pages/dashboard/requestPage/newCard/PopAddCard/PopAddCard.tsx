@@ -133,6 +133,8 @@ export default function PopAddCard({
               required
               name="cardBalance"
               defaultValue={balance}
+              step="0.01"
+              min="0"
               placeholder="Card Balance"
               className="w-full outline-none border border-solid border-gray-300 rounded-md px-2 py-1 inputNum dark:bg-secondaryDark dark:text-black"
             />

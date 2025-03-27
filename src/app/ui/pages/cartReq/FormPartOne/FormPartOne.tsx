@@ -10,6 +10,8 @@ import SubmitBtn from "../../../form/SubmitBtn";
 import TextInput from "../../../form/TextInput";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
+import { useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
 
 // Add custom styles for phone input
 const theme = localStorage.getItem("theme");
@@ -39,6 +41,8 @@ export type FormPartOneProps = {
 export default function FormPartOne({ setPart }: FormPartOneProps) {
   const [loading, setLoading] = useState<boolean>(false);
   const [phone, setPhone] = useState<string>("");
+  const t = useTranslations("Cards");
+  const { lang } = useParams();
 
   useEffect(() => {
     sessionStorage.setItem("phone-card-req", phone);
@@ -65,7 +69,7 @@ export default function FormPartOne({ setPart }: FormPartOneProps) {
         />
         <div className="w-full">
           <label htmlFor="phone" className="block text-sm font-medium mb-1">
-            Phone Number
+            {t("phone")}
           </label>
           <div className="relative">
             <PhoneInput
@@ -76,7 +80,8 @@ export default function FormPartOne({ setPart }: FormPartOneProps) {
               style={phoneInputStyles.container}
               inputStyle={phoneInputStyles.input}
               placeholder="Enter phone number"
-              className="w-full"
+              className={`w-full ${lang === "ar" ? "flex-row-reverse" : ""}`}
+              charAfterDialCode=""
             />
           </div>
         </div>
