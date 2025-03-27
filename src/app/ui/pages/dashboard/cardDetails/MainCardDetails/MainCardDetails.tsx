@@ -40,7 +40,7 @@ export default function MainCardDetails() {
               cvv={dataCard.cvv}
               expiryDate={dataCard.expiryDate}
               status={dataCard.status}
-              cardBalance={`${dataCard.balance}`}
+              cardBalance={`${dataCard.balance.toFixed(2)}`}
               cardCreated={dataCard.createdAt}
               cardNumber={dataCard.cardNumber}
               email={dataCard.User.email}
