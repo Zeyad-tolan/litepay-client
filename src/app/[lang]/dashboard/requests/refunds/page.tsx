@@ -4,7 +4,10 @@ import ShowDataRefunds from "@/src/app/ui/pages/dashboard/requestPage/refunds/Sh
 export default function Refunds() {
   return (
     <section>
-      <FormRequestPage />
+      <FormRequestPage
+        link="/requests/exportAllRequestsAsExcel"
+        fileName="requests"
+      />
       <div className="w-full">
         <ShowDataRefunds />
       </div>

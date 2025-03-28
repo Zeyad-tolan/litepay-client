@@ -4,7 +4,10 @@ import ShowDataRecharge from "@/src/app/ui/pages/dashboard/requestPage/rechargeC
 export default function RechargeCard() {
   return (
     <section>
-      <FormRequestPage />
+      <FormRequestPage
+        link="/requests/exportAllRequestsAsExcel"
+        fileName="requests"
+      />
       <div className="w-full">
         <ShowDataRecharge />
       </div>

@@ -7,7 +7,10 @@ import ShowData from "@/src/app/ui/pages/dashboard/requestPage/newCard/ShowData"
 export default function NewCard() {
   return (
     <>
-      <FormRequestPage />
+      <FormRequestPage
+        link="/requests/exportAllRequestsAsExcel"
+        fileName="requests"
+      />
       <div className="w-full">
         <ShowData />
       </div>
