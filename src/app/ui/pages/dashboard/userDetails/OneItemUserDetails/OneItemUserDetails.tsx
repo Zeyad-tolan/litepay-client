@@ -16,6 +16,8 @@ export default function OneItemUserDetails({
   const month = date.getUTCMonth() + 1;
   const year = date.getUTCFullYear();
   const formattedDate = `${day}/${month}/${year}`;
+  // console.log(dataUser.Cards);
+
   const totalDeposits = useMemo(() => {
     let total = 0;
     dataUser.Cards?.forEach((card) => {
@@ -33,8 +35,14 @@ export default function OneItemUserDetails({
     { title: "phone-number", value: dataUser.phoneNumber || "null" },
     { title: "email", value: dataUser.email },
     { title: "registerDate", value: formattedDate },
-    { title: "totalDeposits", value: `${totalDeposits}` + " USD" },
-    { title: "last", value: `${search.get("last")}` },
+    {
+      title: "totalDeposits",
+      value: `${Number(search.get("total")).toFixed(2)}` + " USD",
+    },
+    {
+      title: "last",
+      value: `${Number(search.get("last")).toFixed(2)}` || "null",
+    },
   ];
 
   // console.log(dataUser.phoneNumber);

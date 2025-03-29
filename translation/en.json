@@ -397,6 +397,7 @@
     "normal": "normal",
     "basic": "Basic",
     "name": "Name",
+    "balance": "Balance",
     "phoneNumber": "Number",
     "nationalID": "National ID",
     "registerDate": "Register date",

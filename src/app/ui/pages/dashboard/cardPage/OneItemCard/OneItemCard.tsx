@@ -9,6 +9,7 @@ type oneItemCardProps = {
   createDate: string;
   totalDeposits: string;
   id: string;
+  balance: number;
 };
 
 export default function OneItemCard({
@@ -17,6 +18,7 @@ export default function OneItemCard({
   id,
   name,
   totalDeposits,
+  balance,
 }: oneItemCardProps) {
   const router = useRouter();
   const { lang } = useParams();
@@ -38,6 +40,7 @@ export default function OneItemCard({
       />
       <OneTdNewCardReq value={formattedDate} />
       <OneTdNewCardReq value={`${parseFloat(totalDeposits).toFixed(2)} USD`} />
+      <OneTdNewCardReq value={`${balance.toFixed(2)} USD`} />
     </tr>
   );
 }

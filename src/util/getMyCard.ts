@@ -25,7 +25,7 @@ export const getMyCard = (
       }
     })
     .then((data) => {
-      //   console.log(data);
+      // console.log(data);
       setData(data.data);
     })
     .catch((err) => console.log(err));

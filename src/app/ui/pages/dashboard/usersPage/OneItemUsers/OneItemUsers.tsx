@@ -69,11 +69,13 @@ export default function OneItemUsers({ item }: { item: getUsersItemType }) {
             : "null"
         }`}
       />
-      <OneTdNewCardReq value={`${totalDeposits.toFixed(2)} USD`} />
-      <OneTdNewCardReq value={`${item.last30DaysDeposit}  USD`} />
-      <td className={`font-normal h-14 py-1 flex justify-center items-center`}>
+      <OneTdNewCardReq value={`${item.deposits.totalDeposit.toFixed(2)} USD`} />
+      <OneTdNewCardReq
+        value={`${item.deposits.totalLast30DaysDeposit.toFixed(2)}  USD`}
+      />
+      <td className={`font-normal h-14 last30DaysDepositer items-center`}>
         <LinkLocal
-          src={`dashboard/users/${item.id}?last=${item.last30DaysDeposit}`}
+          src={`dashboard/users/${item.id}?last=${item.deposits.totalLast30DaysDeposit}&total=${item.deposits.totalDeposit}`}
           style="bg-primary block w-fit h-fit text-black px-1 py-1 rounded-md"
         >
           <ListDots className="text-white" />
