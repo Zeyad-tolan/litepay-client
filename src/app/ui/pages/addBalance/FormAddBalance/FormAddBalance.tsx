@@ -18,6 +18,7 @@ import TypeCharge from "../../ChargeCart/TypeCharge";
 import CardNumber from "../CardNumber";
 import DetailsAddBalance from "../DetailsAddBalance";
 import { getOneUser } from "@/src/util/getOneUser";
+import toast from "react-hot-toast";
 
 export default function FormAddBalance() {
   const [typeCharge, setTypeCharge] = useState<"instapay" | "vodafone">(
@@ -129,7 +130,10 @@ export default function FormAddBalance() {
   return (
     <form
       className="w-full flex flex-col gap-8"
-      onSubmit={(e) =>
+      onSubmit={(e) => {
+        toast.error("This feature is under maintenance");
+        return;
+
         handelSubmitAddBalance(
           e,
           currencyDifference,
@@ -137,8 +141,8 @@ export default function FormAddBalance() {
           typeCharge,
           lang as string,
           router
-        )
-      }
+        );
+      }}
     >
       <CardNumber />
       <div className="w-full flex flex-col gap-2">

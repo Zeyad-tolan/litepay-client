@@ -12,6 +12,7 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { getOneUser } from "@/src/util/getOneUser";
+import toast from "react-hot-toast";
 
 export type DetailsCardDashboardProps = {
   type?: "basic" | "premium";
@@ -102,7 +103,7 @@ export default function DetailsCardDashboard({
           </p>
         </div>
       </div>
-      <Link
+      {/* <Link
         onClick={() => {
           if (typeof window !== "undefined" && window.fbq) {
             window.fbq("track", "click_add_balance_on_card_page");
@@ -115,7 +116,22 @@ export default function DetailsCardDashboard({
         className=" bg-primary rounded-full px-2 py-1 flex items-center gap-1 w-fit text-black"
       >
         <AddBalanceIcon /> {t("add-balance")}
-      </Link>
+      </Link> */}
+      <button
+        onClick={() => {
+          toast.error("This feature is under maintenance");
+          return;
+          if (typeof window !== "undefined" && window.fbq) {
+            window.fbq("track", "click_add_balance_on_card_page");
+          }
+          if (typeof window !== "undefined" && window.ttq) {
+            window.ttq.track("click_add_balance_on_card_page");
+          }
+        }}
+        className=" bg-primary rounded-full px-2 py-1 flex items-center gap-1 w-fit text-black border-none"
+      >
+        <AddBalanceIcon /> {t("add-balance")}
+      </button>
       {user?.Role && user?.Role?.type !== "user" ? (
         <p>
           {/* {t("you-saved")} <span className="text-[#EDA800] font-medium">
